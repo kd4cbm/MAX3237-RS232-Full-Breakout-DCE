@@ -1,0 +1,29 @@
+SPDX-License-Identifier: CERN-OHL-W-2.0
+
+This repository's hardware design files (schematic, PCB layout, Gerbers, BOM,
+and placement files under hardware/) are licensed under the CERN Open
+Hardware Licence Version 2 - Weakly Reciprocal (CERN-OHL-W v2), copyright
+CERN 2020.
+
+The full, canonical license text is not reproduced verbatim in this file to
+avoid the risk of a transcription error in a legal document. It is available
+directly from CERN / the Open Hardware Repository at:
+
+    https://ohwr.org/licences/
+    https://cern-ohl.web.cern.ch/
+
+and via the Software Package Data Exchange (SPDX) at:
+
+    https://spdx.org/licenses/CERN-OHL-W-2.0.html
+
+In summary (this summary is not itself the license and has no legal effect -
+the canonical text linked above governs): you may use, study, modify,
+manufacture, and distribute this design, including commercially. If you
+convey a modified version of these design files, the modified source must
+remain available under the same license. Products you build from this
+design are not themselves subject to this license merely by virtue of being
+built from it.
+
+This license applies to the hardware design files only. Any third-party
+content referenced (datasheets, standard library symbols/footprints) remains
+the property of its respective owner.
