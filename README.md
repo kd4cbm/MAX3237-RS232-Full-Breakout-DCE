@@ -84,6 +84,17 @@ Files in [`hardware/`](hardware/):
 - `BOM_full.csv` - every part on the board, including the through-hole
   connectors, for your own reference/hand-assembly shopping list
 
+**Before ordering, check U1's orientation in JLCPCB's assembly preview.**
+`CPL_SMD.csv` currently has U1 at rotation 180, verified against JLCPCB's
+own preview tool - but this value depends on which specific LCSC library
+part they match to the MAX3237EIPWR footprint (`C2671155`), and that
+match/library entry can change over time. If U1 looks rotated in their
+preview, JLCPCB's placement review UI lets you rotate a part directly and
+save the correction - no need to regenerate any files for a one-off order.
+A quick way to confirm correct placement without knowing the datasheet by
+heart: pin 1 is on the net `/MAX-C2+`, i.e. it should land right next to
+**C2**'s own pad (not C4, and not on the opposite pin row).
+
 ## Revision history
 
 | Rev | Notes |
