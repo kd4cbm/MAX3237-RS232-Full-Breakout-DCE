@@ -100,7 +100,10 @@ sourcing THT parts for machine placement.
 Files in [`hardware/`](hardware/):
 
 - `kicad/` - full KiCad 10 project (schematic + PCB)
-- `gerbers/Gerbers_*.zip` - Gerber + Excellon drill files, ready to upload
+- `gerbers/Gerbers_*.zip` - Gerber + Excellon drill files, ready to upload. **This zip is a generated
+  snapshot, not kept in sync automatically** - it sat stale from rev 4 through rev 8 while the PCB
+  source moved on. Regenerate it (`kicad-cli pcb export gerbers` + `pcb export drill`) any time
+  `hardware/kicad/*.kicad_pcb` changes, before ordering
 - `CPL_SMD.csv` - placement/position file (SMD parts only)
 - `BOM_PCBA_JLCPCB.csv` - PCBA bill of materials (SMD parts only). U1's LCSC
   part number (`C2671155`, MAX3237EIPWR) is verified against LCSC's own
@@ -136,7 +139,8 @@ heart: pin 1 is on the net `/MAX-C2+`, i.e. it should land right next to
 | 5 | Partial fix for mirrored J2 (DE-9) footprint - corrected left-right pin order only; row-to-edge assignment was still wrong (see rev 6) |
 | 6 | Completed the J2 (DE-9) footprint fix: rotated the remaining 180° so the 4-pin row is nearer the board edge; full copper rip/reroute/repour; see [Known issue](#-known-issue-in-previously-manufactured-boards-j2-footprint-was-rotated-180) above |
 | 7 | Cleared two starved-thermal DRC warnings (J2/J3 GND pads set to solid zone connection); no pad or copper changes |
-| 8 | **Current** - Full copper rip/reroute/repour (no pad changes) to clean up scattered clearance-void shapes left by earlier auto-routes; added a dedicated `Power` net class so `+3.3V` routes at 0.4mm instead of the 0.2mm signal-trace default |
+| 8 | Full copper rip/reroute/repour (no pad changes) to clean up scattered clearance-void shapes left by earlier auto-routes; added a dedicated `Power` net class so `+3.3V` routes at 0.4mm instead of the 0.2mm signal-trace default |
+| 9 | **Current** - Regenerated `gerbers/Gerbers_*.zip` and the drill file, which had never been updated past rev 4 - anyone ordering from the old zip would have gotten the original mirrored-J2 board regardless of every PCB-source fix above. Verified against the drill file directly: the 4-pin row's holes now fall closer to the board edge than the 5-pin row's, and every component-hole count (J1/J2/J3-5 pads, both mounting-hole types) matches the pre-fix file exactly - only the via count differs, as expected from a fresh autoroute. `CPL_SMD.csv` and the BOM files were checked and are still correct as-is (no SMD part moved or changed value) |
 
 ## License
 
