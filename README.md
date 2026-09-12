@@ -135,7 +135,8 @@ heart: pin 1 is on the net `/MAX-C2+`, i.e. it should land right next to
 | 4 | JLCPCB via/silkscreen compliance fixes, RXD/TXD silkscreen wording |
 | 5 | Partial fix for mirrored J2 (DE-9) footprint - corrected left-right pin order only; row-to-edge assignment was still wrong (see rev 6) |
 | 6 | Completed the J2 (DE-9) footprint fix: rotated the remaining 180° so the 4-pin row is nearer the board edge; full copper rip/reroute/repour; see [Known issue](#-known-issue-in-previously-manufactured-boards-j2-footprint-was-rotated-180) above |
-| 7 | **Current** - Cleared two starved-thermal DRC warnings (J2/J3 GND pads set to solid zone connection); no pad or copper changes |
+| 7 | Cleared two starved-thermal DRC warnings (J2/J3 GND pads set to solid zone connection); no pad or copper changes |
+| 8 | **Current** - Full copper rip/reroute/repour (no pad changes) to clean up scattered clearance-void shapes left by earlier auto-routes; added a dedicated `Power` net class so `+3.3V` routes at 0.4mm instead of the 0.2mm signal-trace default |
 
 ## License
 
