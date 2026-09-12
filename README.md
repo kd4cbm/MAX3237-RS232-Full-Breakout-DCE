@@ -11,30 +11,34 @@ real RS-232 port.
 ![Front](docs/board_front.png)
 ![Back](docs/board_back.png)
 
-## ⚠ Known issue in previously-manufactured boards: J2 footprint was mirrored
+## ⚠ Known issue in previously-manufactured boards: J2 footprint was rotated 180°
 
-Boards ordered from `main` **before** this fix (everything prior to commit
-`0a0792f`, branch `fix-de9-footprint-mirror`) have the J2 DE-9 footprint
-mirrored 180° left-right relative to the schematic. The pads and copper are
-internally consistent with each other and with the net names below, but the
-physical pin layout does not match the standard DE-9 pinout - if you plug a
-straight-through cable into an affected board, you will connect to the wrong
-signal on every pin except 5 (GND, which is on the center axis).
+Boards ordered from `main` **before this fix** have the J2 DE-9 footprint
+rotated 180° from correct relative to the schematic - both left-right *and*
+which physical row (the 5-pin row vs. the 4-pin row) sits nearer the board
+edge are affected. The pads and copper are internally consistent with each
+other and with the net names below, but the physical pin layout does not
+match the standard DE-9 pinout - if you plug a straight-through cable into
+an affected board, you will connect to the wrong signal on every pin except
+5 (GND, which sits on the connector's center axis).
 
-This was caught after a board had already been manufactured and populated.
-The fix mirrors the J2 pad footprint back to the correct orientation and
-requires a full copper rip/reroute/repour (pad positions changed, so the
-existing traces could not simply be kept) - it is not a silkscreen or
-labeling fix. The corrected layout has been independently re-verified twice:
-against KiCad's own standard `Connector_Dsub` library footprint for pad
-ordering, and against the real Maxim/Analog Devices MAX3237 datasheet for
-every one of U1's 28 pins.
+This shipped in two stages. An initial fix (commit `0a0792f`) corrected the
+left-right pin order, verified at the time against KiCad's own standard
+`Connector_Dsub` library footprint - but that check only compared left-right
+order and missed that the two pin rows were *also* swapped front-to-back, so
+boards built from that revision alone still had the 5-pin row nearer the
+board edge instead of the 4-pin row. That was caught on a second, closer
+comparison against the same trusted footprint (this time checking full 2-D
+pad geometry, not just left-right rank) and against the actual net-name
+silkscreen labels, and is corrected as of commit `1042daa` - J2 rotated the
+remaining 180°, all copper ripped and rerouted again.
 
-**If you already have a board built from `main` before the fix**: do not
-assume the J2 pins match the table below. Either replace the board with one
-built from the fixed revision, or trace out each pin with a meter against
-the schematic/netlist and build a corrected cable or adapter for that
-specific board before relying on it.
+**If you already have a board built from `main` before this revision** -
+whether it predates the first fix or only the second - do not assume the J2
+pins match the table below. Either replace the board with one built from
+this revision, or trace out each pin with a meter against the
+schematic/netlist and build a corrected cable or adapter for that specific
+board before relying on it.
 
 ## Connectors
 
@@ -129,7 +133,8 @@ heart: pin 1 is on the net `/MAX-C2+`, i.e. it should land right next to
 | 2 | Post-routing checkpoint (Freerouting output, traces only) |
 | 3 | Added GND pour, widened VCC traces |
 | 4 | JLCPCB via/silkscreen compliance fixes, RXD/TXD silkscreen wording |
-| 5 | **Current** - Fixed mirrored J2 (DE-9) footprint; full copper rip/reroute/repour; see [Known issue](#-known-issue-in-previously-manufactured-boards-j2-footprint-was-mirrored) above |
+| 5 | Partial fix for mirrored J2 (DE-9) footprint - corrected left-right pin order only; row-to-edge assignment was still wrong (see rev 6) |
+| 6 | **Current** - Completed the J2 (DE-9) footprint fix: rotated the remaining 180° so the 4-pin row is nearer the board edge; full copper rip/reroute/repour; see [Known issue](#-known-issue-in-previously-manufactured-boards-j2-footprint-was-rotated-180) above |
 
 ## License
 
