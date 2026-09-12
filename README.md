@@ -30,7 +30,7 @@ boards built from that revision alone still had the 5-pin row nearer the
 board edge instead of the 4-pin row. That was caught on a second, closer
 comparison against the same trusted footprint (this time checking full 2-D
 pad geometry, not just left-right rank) and against the actual net-name
-silkscreen labels, and is corrected as of this revision - J2 rotated the
+silkscreen labels, and is corrected as of commit `1042daa` - J2 rotated the
 remaining 180°, all copper ripped and rerouted again.
 
 **If you already have a board built from `main` before this revision** -
