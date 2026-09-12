@@ -11,6 +11,31 @@ real RS-232 port.
 ![Front](docs/board_front.png)
 ![Back](docs/board_back.png)
 
+## ⚠ Known issue in previously-manufactured boards: J2 footprint was mirrored
+
+Boards ordered from `main` **before** this fix (everything prior to commit
+`0a0792f`, branch `fix-de9-footprint-mirror`) have the J2 DE-9 footprint
+mirrored 180° left-right relative to the schematic. The pads and copper are
+internally consistent with each other and with the net names below, but the
+physical pin layout does not match the standard DE-9 pinout - if you plug a
+straight-through cable into an affected board, you will connect to the wrong
+signal on every pin except 5 (GND, which is on the center axis).
+
+This was caught after a board had already been manufactured and populated.
+The fix mirrors the J2 pad footprint back to the correct orientation and
+requires a full copper rip/reroute/repour (pad positions changed, so the
+existing traces could not simply be kept) - it is not a silkscreen or
+labeling fix. The corrected layout has been independently re-verified twice:
+against KiCad's own standard `Connector_Dsub` library footprint for pad
+ordering, and against the real Maxim/Analog Devices MAX3237 datasheet for
+every one of U1's 28 pins.
+
+**If you already have a board built from `main` before the fix**: do not
+assume the J2 pins match the table below. Either replace the board with one
+built from the fixed revision, or trace out each pin with a meter against
+the schematic/netlist and build a corrected cable or adapter for that
+specific board before relying on it.
+
 ## Connectors
 
 **J1 - TTL header** (10-pin, 2.54mm, 3.3V logic side)
@@ -103,7 +128,8 @@ heart: pin 1 is on the net `/MAX-C2+`, i.e. it should land right next to
 | 1 | Pre-routing checkpoint (placement + keepouts finalized) |
 | 2 | Post-routing checkpoint (Freerouting output, traces only) |
 | 3 | Added GND pour, widened VCC traces |
-| 4 | **Current** - JLCPCB via/silkscreen compliance fixes, RXD/TXD silkscreen wording |
+| 4 | JLCPCB via/silkscreen compliance fixes, RXD/TXD silkscreen wording |
+| 5 | **Current** - Fixed mirrored J2 (DE-9) footprint; full copper rip/reroute/repour; see [Known issue](#-known-issue-in-previously-manufactured-boards-j2-footprint-was-mirrored) above |
 
 ## License
 
