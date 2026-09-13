@@ -40,6 +40,16 @@ this revision, or trace out each pin with a meter against the
 schematic/netlist and build a corrected cable or adapter for that specific
 board before relying on it.
 
+A related but separate defect existed only in git history, never manufactured:
+commit `1042daa`'s row-orientation fix moved the J2 *pads* to the correct
+physical location but repositioned the *silkscreen net labels* using a wrong
+assumption about which pad number carried which net, so 8 of the 9 printed
+labels ended up swapped with their opposite-row counterpart (e.g. the pad
+that actually carries DCD was labeled "GND", and vice versa) - the copper
+and nets themselves were correct the whole time, only the printed text was
+wrong. Fixed as of the current revision; the silkscreen now matches the
+[J2 pinout](#connectors) below pin-for-pin.
+
 ## Connectors
 
 **J1 - TTL header** (10-pin, 2.54mm, 3.3V logic side)
@@ -140,7 +150,8 @@ heart: pin 1 is on the net `/MAX-C2+`, i.e. it should land right next to
 | 6 | Completed the J2 (DE-9) footprint fix: rotated the remaining 180° so the 4-pin row is nearer the board edge; full copper rip/reroute/repour; see [Known issue](#-known-issue-in-previously-manufactured-boards-j2-footprint-was-rotated-180) above |
 | 7 | Cleared two starved-thermal DRC warnings (J2/J3 GND pads set to solid zone connection); no pad or copper changes |
 | 8 | Full copper rip/reroute/repour (no pad changes) to clean up scattered clearance-void shapes left by earlier auto-routes; added a dedicated `Power` net class so `+3.3V` routes at 0.4mm instead of the 0.2mm signal-trace default |
-| 9 | **Current** - Regenerated `gerbers/Gerbers_*.zip` and the drill file, which had never been updated past rev 4 - anyone ordering from the old zip would have gotten the original mirrored-J2 board regardless of every PCB-source fix above. Verified against the drill file directly: the 4-pin row's holes now fall closer to the board edge than the 5-pin row's, and every component-hole count (J1/J2/J3-5 pads, both mounting-hole types) matches the pre-fix file exactly - only the via count differs, as expected from a fresh autoroute. `CPL_SMD.csv` and the BOM files were checked and are still correct as-is (no SMD part moved or changed value) |
+| 9 | Regenerated `gerbers/Gerbers_*.zip` and the drill file, which had never been updated past rev 4 - anyone ordering from the old zip would have gotten the original mirrored-J2 board regardless of every PCB-source fix above. Verified against the drill file directly: the 4-pin row's holes now fall closer to the board edge than the 5-pin row's, and every component-hole count (J1/J2/J3-5 pads, both mounting-hole types) matches the pre-fix file exactly - only the via count differs, as expected from a fresh autoroute. `CPL_SMD.csv` and the BOM files were checked and are still correct as-is (no SMD part moved or changed value) |
+| 10 | **Current** - Fixed J2's silkscreen net labels: 8 of the 9 (every one but TXD, which sits on the axis of symmetry) were mirror-swapped with their opposite-row counterpart, a mistake introduced when the labels were repositioned during the rev 6 row-orientation fix - the *pads* moved to the correct physical location then, but the labels were repositioned using a wrong net-to-pad-number assumption - the silkscreen now matches the [J2 pinout](#connectors) above pin-for-pin. No copper/pad changes; Gerbers and drill regenerated since the silkscreen layer changed |
 
 ## License
 

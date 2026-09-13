@@ -1583,10 +1583,10 @@
 			(justify left)
 		)
 	)
-	(gr_text "GND"
+	(gr_text "DCD"
 		(at 10.3886 -30.193 90)
 		(layer "F.SilkS")
-		(uuid "4af1547a-c402-4a1a-b397-75a4d09936b8")
+		(uuid "37e98e12-34b9-4e38-8907-42dee7488512")
 		(effects
 			(font
 				(size 1 1)
@@ -1595,10 +1595,10 @@
 			(justify left)
 		)
 	)
-	(gr_text "RI"
+	(gr_text "DSR"
 		(at 11.7602 -30.193 90)
 		(layer "F.SilkS")
-		(uuid "a9d61830-6e02-42af-8e90-288a0d7c7475")
+		(uuid "960f811f-b7d5-46ae-891c-7ff2750f7ee8")
 		(effects
 			(font
 				(size 1 1)
@@ -1619,10 +1619,10 @@
 			(justify left)
 		)
 	)
-	(gr_text "DTR"
+	(gr_text "RXD"
 		(at 13.1318 -30.193 90)
 		(layer "F.SilkS")
-		(uuid "654e1628-1dcd-41cd-ba79-f78c8fff646e")
+		(uuid "a1241aa9-f61f-4077-9496-eaeb3a8347bb")
 		(effects
 			(font
 				(size 1 1)
@@ -1631,10 +1631,10 @@
 			(justify left)
 		)
 	)
-	(gr_text "CTS"
+	(gr_text "RTS"
 		(at 14.5034 -30.193 90)
 		(layer "F.SilkS")
-		(uuid "397cddd3-afd4-467a-812e-5da523544916")
+		(uuid "69703b55-1f7f-4bd7-852b-2408fa435145")
 		(effects
 			(font
 				(size 1 1)
@@ -1679,10 +1679,10 @@
 			(justify left)
 		)
 	)
-	(gr_text "RTS"
+	(gr_text "CTS"
 		(at 17.2466 -30.193 90)
 		(layer "F.SilkS")
-		(uuid "69703b55-1f7f-4bd7-852b-2408fa435145")
+		(uuid "397cddd3-afd4-467a-812e-5da523544916")
 		(effects
 			(font
 				(size 1 1)
@@ -1691,10 +1691,10 @@
 			(justify left)
 		)
 	)
-	(gr_text "RXD"
+	(gr_text "DTR"
 		(at 18.6182 -30.193 90)
 		(layer "F.SilkS")
-		(uuid "a1241aa9-f61f-4077-9496-eaeb3a8347bb")
+		(uuid "654e1628-1dcd-41cd-ba79-f78c8fff646e")
 		(effects
 			(font
 				(size 1 1)
@@ -1715,10 +1715,10 @@
 			(justify left)
 		)
 	)
-	(gr_text "DSR"
+	(gr_text "RI"
 		(at 19.9898 -30.193 90)
 		(layer "F.SilkS")
-		(uuid "960f811f-b7d5-46ae-891c-7ff2750f7ee8")
+		(uuid "a9d61830-6e02-42af-8e90-288a0d7c7475")
 		(effects
 			(font
 				(size 1 1)
@@ -1727,10 +1727,10 @@
 			(justify left)
 		)
 	)
-	(gr_text "DCD"
+	(gr_text "GND"
 		(at 21.3614 -30.193 90)
 		(layer "F.SilkS")
-		(uuid "37e98e12-34b9-4e38-8907-42dee7488512")
+		(uuid "4af1547a-c402-4a1a-b397-75a4d09936b8")
 		(effects
 			(font
 				(size 1 1)
@@ -1883,10 +1883,10 @@
 			(justify left mirror)
 		)
 	)
-	(gr_text "GND"
+	(gr_text "DCD"
 		(at 10.3886 -32.393 90)
 		(layer "B.SilkS")
-		(uuid "8ebe0f1b-7444-4c25-b11d-08dab159b0fa")
+		(uuid "2bc63d61-bdbb-41d2-9964-fb75c3e38673")
 		(effects
 			(font
 				(size 1 1)
@@ -1895,10 +1895,10 @@
 			(justify left mirror)
 		)
 	)
-	(gr_text "RI"
+	(gr_text "DSR"
 		(at 11.7602 -32.393 90)
 		(layer "B.SilkS")
-		(uuid "eff8e0ad-2b11-4ac1-b873-f5d9850546aa")
+		(uuid "750c8818-fc54-48fc-b9c7-fe6a57dd8c8e")
 		(effects
 			(font
 				(size 1 1)
@@ -1919,10 +1919,10 @@
 			(justify left mirror)
 		)
 	)
-	(gr_text "DTR"
+	(gr_text "RXD"
 		(at 13.1318 -32.393 90)
 		(layer "B.SilkS")
-		(uuid "60e93227-d5b2-409f-b1ee-131c71ecf972")
+		(uuid "ba1778e4-bcb6-4b16-9d29-89d27325ea43")
 		(effects
 			(font
 				(size 1 1)
@@ -1931,10 +1931,10 @@
 			(justify left mirror)
 		)
 	)
-	(gr_text "CTS"
+	(gr_text "RTS"
 		(at 14.5034 -32.393 90)
 		(layer "B.SilkS")
-		(uuid "011c2c3c-ba5b-42ca-9198-bd8424aaa303")
+		(uuid "ae13c38f-9d3d-40af-9fd6-c07090512149")
 		(effects
 			(font
 				(size 1 1)
@@ -1979,10 +1979,10 @@
 			(justify left mirror)
 		)
 	)
-	(gr_text "RTS"
+	(gr_text "CTS"
 		(at 17.2466 -32.393 90)
 		(layer "B.SilkS")
-		(uuid "ae13c38f-9d3d-40af-9fd6-c07090512149")
+		(uuid "011c2c3c-ba5b-42ca-9198-bd8424aaa303")
 		(effects
 			(font
 				(size 1 1)
@@ -1991,10 +1991,10 @@
 			(justify left mirror)
 		)
 	)
-	(gr_text "RXD"
+	(gr_text "DTR"
 		(at 18.6182 -32.393 90)
 		(layer "B.SilkS")
-		(uuid "ba1778e4-bcb6-4b16-9d29-89d27325ea43")
+		(uuid "60e93227-d5b2-409f-b1ee-131c71ecf972")
 		(effects
 			(font
 				(size 1 1)
@@ -2015,10 +2015,10 @@
 			(justify left mirror)
 		)
 	)
-	(gr_text "DSR"
+	(gr_text "RI"
 		(at 19.9898 -32.393 90)
 		(layer "B.SilkS")
-		(uuid "750c8818-fc54-48fc-b9c7-fe6a57dd8c8e")
+		(uuid "eff8e0ad-2b11-4ac1-b873-f5d9850546aa")
 		(effects
 			(font
 				(size 1 1)
@@ -2027,10 +2027,10 @@
 			(justify left mirror)
 		)
 	)
-	(gr_text "DCD"
+	(gr_text "GND"
 		(at 21.3614 -32.393 90)
 		(layer "B.SilkS")
-		(uuid "2bc63d61-bdbb-41d2-9964-fb75c3e38673")
+		(uuid "8ebe0f1b-7444-4c25-b11d-08dab159b0fa")
 		(effects
 			(font
 				(size 1 1)
